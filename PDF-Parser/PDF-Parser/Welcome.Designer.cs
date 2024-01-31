@@ -59,6 +59,7 @@
             this.DataSourceContentBox.Name = "DataSourceContentBox";
             this.DataSourceContentBox.Size = new System.Drawing.Size(460, 379);
             this.DataSourceContentBox.TabIndex = 1;
+            this.DataSourceContentBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DataSourceContentBox_MouseDoubleClick);
             // 
             // Welcome
             // 

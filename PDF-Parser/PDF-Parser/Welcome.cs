@@ -57,5 +57,17 @@ namespace PDF_Parser
                 MessageBox.Show(exception.Message);
             }
         }
+
+        private void DataSourceContentBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (DataSourceContentBox.SelectedItem == null) return;
+            OpenListItem(DataSourceContentBox.SelectedItem);
+        }
+
+        private void OpenListItem(object item)
+        {
+            string listItemPath = Path.Combine(_dataSource, item.ToString());
+            MessageBox.Show(listItemPath);
+        }
     }
 }
