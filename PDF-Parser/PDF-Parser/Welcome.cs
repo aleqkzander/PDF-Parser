@@ -7,17 +7,21 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace PDF_Parser
 {
     public partial class Welcome : Form
     {
         private string _dataSource;
+        private ListBox _contentList;
+
 
         public Welcome()
         {
             InitializeComponent();
             DataSourceTextBox.KeyUp += DataSource_OnEnterPressed;
+            FilterTextBox.KeyUp += FilterBox_OnEnterPressed;
         }
 
         private async void DataSource_OnEnterPressed(object sender, KeyEventArgs e)
@@ -32,6 +36,7 @@ namespace PDF_Parser
             });
 
             LoadingAnimation.Visible = false;
+            _contentList = DataSourceContentBox;
         }
 
         private async void Welcome_Load(object sender, EventArgs e)
@@ -44,6 +49,7 @@ namespace PDF_Parser
             });
 
             LoadingAnimation.Visible = false;
+            _contentList = DataSourceContentBox;
         }
 
         private void FillContentBoxWithDataSourceContent(string datasource)
@@ -59,6 +65,10 @@ namespace PDF_Parser
 
                 foreach (string pdfFile in pdfFiles)
                 {
+                    /*
+                     * First populate the generic list and the listbox
+                     */
+
                     PdfContentObject pdfContentObject = new PdfContentObject
                         (
                         Path.Combine(datasource, pdfFile),
@@ -66,7 +76,7 @@ namespace PDF_Parser
                         ReadPdfFile(Path.Combine(datasource, pdfFile))
                         );
 
-                    DataSourceContentBox?.Invoke((Action)(() 
+                    DataSourceContentBox?.Invoke((Action)(()
                         => DataSourceContentBox.Items.Add(pdfContentObject)));
                 }
             }
@@ -124,6 +134,37 @@ namespace PDF_Parser
         {
             FileContent fileContent = new FileContent(pdfContentObject);
             fileContent.Show();
+        }
+
+        private void FilterBox_OnEnterPressed(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter) return;
+
+            if (string.IsNullOrEmpty(FilterTextBox.Text))
+            {
+                FillContentBoxWithDataSourceContent(_dataSource);
+                return; 
+            }
+
+            List<PdfContentObject> localList = new List<PdfContentObject>();
+
+            foreach (PdfContentObject item in _contentList.Items)
+            {
+                if (item.Text.ToLower().Contains(FilterTextBox.Text.ToLower()))
+                {
+                    localList.Add(item);
+                }
+            }
+
+            if (localList.Count > 0)
+            {
+                DataSourceContentBox.Items.Clear();
+
+                foreach(PdfContentObject filteredObject in localList)
+                {
+                    DataSourceContentBox.Items.Add(filteredObject);
+                }
+            }
         }
     }
 }

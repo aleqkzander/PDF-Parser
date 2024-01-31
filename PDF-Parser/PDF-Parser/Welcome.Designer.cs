@@ -33,9 +33,12 @@
             this.DataSourceContentBox = new System.Windows.Forms.ListBox();
             this.LoadingAnimation = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.FilterTextBox = new System.Windows.Forms.TextBox();
             this.DataSourceGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoadingAnimation)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // DataSourceGroup
@@ -69,7 +72,7 @@
             this.DataSourceContentBox.FormattingEnabled = true;
             this.DataSourceContentBox.Location = new System.Drawing.Point(6, 19);
             this.DataSourceContentBox.Name = "DataSourceContentBox";
-            this.DataSourceContentBox.Size = new System.Drawing.Size(591, 483);
+            this.DataSourceContentBox.Size = new System.Drawing.Size(591, 418);
             this.DataSourceContentBox.TabIndex = 1;
             this.DataSourceContentBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DataSourceContentBox_MouseDoubleClick);
             // 
@@ -77,7 +80,7 @@
             // 
             this.LoadingAnimation.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.LoadingAnimation.Image = global::PDF_Parser.Properties.Resources.loading;
-            this.LoadingAnimation.Location = new System.Drawing.Point(213, 173);
+            this.LoadingAnimation.Location = new System.Drawing.Point(213, 144);
             this.LoadingAnimation.Name = "LoadingAnimation";
             this.LoadingAnimation.Size = new System.Drawing.Size(176, 169);
             this.LoadingAnimation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -91,18 +94,41 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.LoadingAnimation);
             this.groupBox1.Controls.Add(this.DataSourceContentBox);
-            this.groupBox1.Location = new System.Drawing.Point(13, 71);
+            this.groupBox1.Location = new System.Drawing.Point(13, 128);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(603, 514);
+            this.groupBox1.Size = new System.Drawing.Size(603, 457);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Content";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.FilterTextBox);
+            this.groupBox2.Location = new System.Drawing.Point(12, 70);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(604, 52);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Filter";
+            // 
+            // FilterTextBox
+            // 
+            this.FilterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FilterTextBox.Location = new System.Drawing.Point(6, 19);
+            this.FilterTextBox.Name = "FilterTextBox";
+            this.FilterTextBox.Size = new System.Drawing.Size(592, 20);
+            this.FilterTextBox.TabIndex = 0;
             // 
             // Welcome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 597);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DataSourceGroup);
             this.MaximizeBox = false;
@@ -113,6 +139,8 @@
             this.DataSourceGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoadingAnimation)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -124,6 +152,8 @@
         private System.Windows.Forms.ListBox DataSourceContentBox;
         private System.Windows.Forms.PictureBox LoadingAnimation;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox FilterTextBox;
     }
 }
 
