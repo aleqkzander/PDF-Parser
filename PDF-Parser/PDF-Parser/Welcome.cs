@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace PDF_Parser
 {
@@ -19,30 +20,38 @@ namespace PDF_Parser
             DataSourceTextBox.KeyUp += DataSource_OnEnterPressed;
         }
 
-        private void DataSource_OnEnterPressed(object sender, KeyEventArgs e)
+        private async void DataSource_OnEnterPressed(object sender, KeyEventArgs e)
         {
-            // Dont execute when not enter or textbox has no content
             if (e.KeyCode != Keys.Enter || string.IsNullOrEmpty(DataSourceTextBox.Text)) return;
-
             LoadingAnimation.Visible = true;
-
             _dataSource = DatasourceManager.SaveDataSource(DataSourceTextBox, DataSourceGroup);
-            FillContentBoxWithDataSourceContent(_dataSource);
+
+            await Task.Run(() =>
+            {
+                FillContentBoxWithDataSourceContent(_dataSource);
+            });
 
             LoadingAnimation.Visible = false;
         }
 
-        private void Welcome_Load(object sender, EventArgs e)
+        private async void Welcome_Load(object sender, EventArgs e)
         {
             _dataSource = DatasourceManager.LoadDataSource(DataSourceGroup);
-            FillContentBoxWithDataSourceContent(_dataSource);
+
+            await Task.Run(() =>
+            {
+                FillContentBoxWithDataSourceContent(_dataSource);
+            });
+
+            LoadingAnimation.Visible = false;
         }
 
         private void FillContentBoxWithDataSourceContent(string datasource)
         {
             if (string.IsNullOrEmpty(datasource)) return;
 
-            DataSourceContentBox.Items.Clear();
+            DataSourceContentBox?.Invoke((Action)(() 
+                => DataSourceContentBox.Items.Clear()));
 
             try
             {
@@ -57,7 +66,8 @@ namespace PDF_Parser
                         ReadPdfFile(Path.Combine(datasource, pdfFile))
                         );
 
-                    DataSourceContentBox.Items.Add(pdfContentObject);
+                    DataSourceContentBox?.Invoke((Action)(() 
+                        => DataSourceContentBox.Items.Add(pdfContentObject)));
                 }
             }
             catch (Exception exception)

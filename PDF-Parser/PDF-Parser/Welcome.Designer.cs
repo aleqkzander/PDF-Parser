@@ -45,7 +45,7 @@
             this.DataSourceGroup.Controls.Add(this.DataSourceTextBox);
             this.DataSourceGroup.Location = new System.Drawing.Point(12, 12);
             this.DataSourceGroup.Name = "DataSourceGroup";
-            this.DataSourceGroup.Size = new System.Drawing.Size(460, 52);
+            this.DataSourceGroup.Size = new System.Drawing.Size(604, 52);
             this.DataSourceGroup.TabIndex = 0;
             this.DataSourceGroup.TabStop = false;
             this.DataSourceGroup.Text = "Datasource";
@@ -57,7 +57,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataSourceTextBox.Location = new System.Drawing.Point(6, 19);
             this.DataSourceTextBox.Name = "DataSourceTextBox";
-            this.DataSourceTextBox.Size = new System.Drawing.Size(448, 20);
+            this.DataSourceTextBox.Size = new System.Drawing.Size(592, 20);
             this.DataSourceTextBox.TabIndex = 0;
             // 
             // DataSourceContentBox
@@ -69,7 +69,7 @@
             this.DataSourceContentBox.FormattingEnabled = true;
             this.DataSourceContentBox.Location = new System.Drawing.Point(6, 19);
             this.DataSourceContentBox.Name = "DataSourceContentBox";
-            this.DataSourceContentBox.Size = new System.Drawing.Size(447, 353);
+            this.DataSourceContentBox.Size = new System.Drawing.Size(591, 483);
             this.DataSourceContentBox.TabIndex = 1;
             this.DataSourceContentBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DataSourceContentBox_MouseDoubleClick);
             // 
@@ -77,13 +77,12 @@
             // 
             this.LoadingAnimation.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.LoadingAnimation.Image = global::PDF_Parser.Properties.Resources.loading;
-            this.LoadingAnimation.Location = new System.Drawing.Point(141, 105);
+            this.LoadingAnimation.Location = new System.Drawing.Point(213, 173);
             this.LoadingAnimation.Name = "LoadingAnimation";
             this.LoadingAnimation.Size = new System.Drawing.Size(176, 169);
             this.LoadingAnimation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.LoadingAnimation.TabIndex = 2;
             this.LoadingAnimation.TabStop = false;
-            this.LoadingAnimation.Visible = false;
             // 
             // groupBox1
             // 
@@ -94,7 +93,7 @@
             this.groupBox1.Controls.Add(this.DataSourceContentBox);
             this.groupBox1.Location = new System.Drawing.Point(13, 71);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(459, 378);
+            this.groupBox1.Size = new System.Drawing.Size(603, 514);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Content";
@@ -103,9 +102,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 461);
+            this.ClientSize = new System.Drawing.Size(628, 597);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DataSourceGroup);
+            this.MaximizeBox = false;
             this.Name = "Welcome";
             this.Text = "PDF-Parser";
             this.Load += new System.EventHandler(this.Welcome_Load);
