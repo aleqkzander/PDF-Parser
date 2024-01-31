@@ -61,3 +61,4 @@ C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\De
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Debug\System.ValueTuple.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.csproj.CopyComplete
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF_Parser.FileContent.resources

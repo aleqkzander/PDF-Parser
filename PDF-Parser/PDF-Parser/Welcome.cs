@@ -24,8 +24,12 @@ namespace PDF_Parser
             // Dont execute when not enter or textbox has no content
             if (e.KeyCode != Keys.Enter || string.IsNullOrEmpty(DataSourceTextBox.Text)) return;
 
+            LoadingAnimation.Visible = true;
+
             _dataSource = DatasourceManager.SaveDataSource(DataSourceTextBox, DataSourceGroup);
             FillContentBoxWithDataSourceContent(_dataSource);
+
+            LoadingAnimation.Visible = false;
         }
 
         private void Welcome_Load(object sender, EventArgs e)
@@ -46,7 +50,14 @@ namespace PDF_Parser
 
                 foreach (string pdfFile in pdfFiles)
                 {
-                    DataSourceContentBox.Items.Add(Path.GetFileName(pdfFile));
+                    PdfContentObject pdfContentObject = new PdfContentObject
+                        (
+                        Path.Combine(datasource, pdfFile),
+                        Path.GetFileName(pdfFile),
+                        ReadPdfFile(Path.Combine(datasource, pdfFile))
+                        );
+
+                    DataSourceContentBox.Items.Add(pdfContentObject);
                 }
             }
             catch (Exception exception)
@@ -55,21 +66,7 @@ namespace PDF_Parser
             }
         }
 
-        private void DataSourceContentBox_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (DataSourceContentBox.SelectedItem == null) return;
-            OpenListItem(DataSourceContentBox.SelectedItem);
-        }
-
-        private void OpenListItem(object item)
-        {
-            string itemName = item.ToString();
-            string listItemPath = Path.Combine(_dataSource, item.ToString());
-            string fileContent = OpenPdfFile(listItemPath);
-            MessageBox.Show(fileContent);
-        }
-
-        private string OpenPdfFile(string path)
+        private string ReadPdfFile(string path)
         {
             StringBuilder text = new StringBuilder();
 
@@ -103,6 +100,20 @@ namespace PDF_Parser
             }
 
             return text.ToString();
+        }
+
+        private void DataSourceContentBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (DataSourceContentBox.SelectedItem == null) return;
+
+            PdfContentObject selectedPdfObject = (PdfContentObject)DataSourceContentBox.SelectedItem;
+            OpenListItem(selectedPdfObject);
+        }
+
+        private void OpenListItem(PdfContentObject pdfContentObject)
+        {
+            FileContent fileContent = new FileContent(pdfContentObject);
+            fileContent.Show();
         }
     }
 }
