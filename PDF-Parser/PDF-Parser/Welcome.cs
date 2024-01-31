@@ -1,13 +1,10 @@
-﻿using PDF_Parser.Utility;
+﻿using iText.Kernel.Pdf.Canvas.Parser.Listener;
+using iText.Kernel.Pdf.Canvas.Parser;
+using iText.Kernel.Pdf;
+using PDF_Parser.Utility;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PDF_Parser
@@ -67,7 +64,44 @@ namespace PDF_Parser
         private void OpenListItem(object item)
         {
             string listItemPath = Path.Combine(_dataSource, item.ToString());
-            MessageBox.Show(listItemPath);
+            string fileContent = OpenPdfFile(listItemPath);
+            MessageBox.Show(fileContent);
+        }
+
+        private string OpenPdfFile(string path)
+        {
+            StringBuilder text = new StringBuilder();
+
+            try
+            {
+                // Create a PdfReader object to read the PDF file
+                using (PdfReader pdfReader = new PdfReader(path))
+                {
+                    // Create a PdfDocument object to represent the PDF document
+                    using (PdfDocument pdfDocument = new PdfDocument(pdfReader))
+                    {
+                        // Iterate through each page of the PDF document
+                        for (int pageNumber = 1; pageNumber <= pdfDocument.GetNumberOfPages(); pageNumber++)
+                        {
+                            // Create a SimpleTextExtractionStrategy to extract text from the page
+                            ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
+
+                            // Parse the content of the page and extract text
+                            string pageText = PdfTextExtractor.GetTextFromPage(pdfDocument.GetPage(pageNumber), strategy);
+
+                            // Append the extracted text to the StringBuilder
+                            text.AppendLine(pageText);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions, e.g., if the PDF file is password-protected or corrupted
+                text.AppendLine($"Error reading PDF file: {ex.Message}");
+            }
+
+            return text.ToString();
         }
     }
 }
