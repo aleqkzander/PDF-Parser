@@ -1,10 +1,6 @@
-﻿using iText.Kernel.Pdf.Canvas.Parser.Listener;
-using iText.Kernel.Pdf.Canvas.Parser;
-using iText.Kernel.Pdf;
-using PDF_Parser.Utility;
+﻿using PDF_Parser.Utility;
 using System;
 using System.IO;
-using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -16,27 +12,11 @@ namespace PDF_Parser
         private string _dataSource;
         private ListBox _contentList;
 
-
         public Welcome()
         {
             InitializeComponent();
             DataSourceTextBox.KeyUp += DataSource_OnEnterPressed;
             FilterTextBox.KeyUp += FilterBox_OnEnterPressed;
-        }
-
-        private async void DataSource_OnEnterPressed(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode != Keys.Enter || string.IsNullOrEmpty(DataSourceTextBox.Text)) return;
-            LoadingAnimation.Visible = true;
-            _dataSource = DatasourceManager.SaveDataSource(DataSourceTextBox, DataSourceGroup);
-
-            await Task.Run(() =>
-            {
-                FillContentBoxWithDataSourceContent(_dataSource);
-            });
-
-            LoadingAnimation.Visible = false;
-            _contentList = DataSourceContentBox;
         }
 
         private async void Welcome_Load(object sender, EventArgs e)
@@ -45,19 +25,17 @@ namespace PDF_Parser
 
             await Task.Run(() =>
             {
-                FillContentBoxWithDataSourceContent(_dataSource);
+                FillContentBoxFromDataSource(_dataSource);
             });
 
             LoadingAnimation.Visible = false;
             _contentList = DataSourceContentBox;
         }
 
-        private void FillContentBoxWithDataSourceContent(string datasource)
+        private void FillContentBoxFromDataSource(string datasource)
         {
             if (string.IsNullOrEmpty(datasource)) return;
-
-            DataSourceContentBox?.Invoke((Action)(() 
-                => DataSourceContentBox.Items.Clear()));
+            DataboxController.ClearContentBox(DataSourceContentBox);
 
             try
             {
@@ -65,19 +43,11 @@ namespace PDF_Parser
 
                 foreach (string pdfFile in pdfFiles)
                 {
-                    /*
-                     * First populate the generic list and the listbox
-                     */
-
-                    PdfContentObject pdfContentObject = new PdfContentObject
-                        (
-                        Path.Combine(datasource, pdfFile),
-                        Path.GetFileName(pdfFile),
-                        ReadPdfFile(Path.Combine(datasource, pdfFile))
-                        );
-
-                    DataSourceContentBox?.Invoke((Action)(()
-                        => DataSourceContentBox.Items.Add(pdfContentObject)));
+                    string path = Path.Combine(datasource, pdfFile);
+                    string name = Path.GetFileName(pdfFile);
+                    string text = ReaderHelper.Read(path);
+                    PdfContentObject pdfContentObject = new PdfContentObject(path, name,text);
+                    DataboxController.FillContentBox(DataSourceContentBox, pdfContentObject);
                 }
             }
             catch (Exception exception)
@@ -86,85 +56,75 @@ namespace PDF_Parser
             }
         }
 
-        private string ReadPdfFile(string path)
+        private void FillContenBoxFromList(List<PdfContentObject> pdfContentObjects)
         {
-            StringBuilder text = new StringBuilder();
+            if (pdfContentObjects.Count == 0) return;
+            DataboxController.ClearContentBox(DataSourceContentBox);
 
             try
             {
-                // Create a PdfReader object to read the PDF file
-                using (PdfReader pdfReader = new PdfReader(path))
+                foreach (PdfContentObject filteredObject in pdfContentObjects)
                 {
-                    // Create a PdfDocument object to represent the PDF document
-                    using (PdfDocument pdfDocument = new PdfDocument(pdfReader))
-                    {
-                        // Iterate through each page of the PDF document
-                        for (int pageNumber = 1; pageNumber <= pdfDocument.GetNumberOfPages(); pageNumber++)
-                        {
-                            // Create a SimpleTextExtractionStrategy to extract text from the page
-                            ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
-
-                            // Parse the content of the page and extract text
-                            string pageText = PdfTextExtractor.GetTextFromPage(pdfDocument.GetPage(pageNumber), strategy);
-
-                            // Append the extracted text to the StringBuilder
-                            text.AppendLine(pageText);
-                        }
-                    }
+                    DataboxController.FillContentBox(DataSourceContentBox, filteredObject);
                 }
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                // Handle exceptions, e.g., if the PDF file is password-protected or corrupted
-                text.AppendLine($"Error reading PDF file: {ex.Message}");
+                MessageBox.Show(exception.Message);
             }
-
-            return text.ToString();
         }
 
         private void DataSourceContentBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            /*
+             * Open a new window
+             */
+
             if (DataSourceContentBox.SelectedItem == null) return;
 
             PdfContentObject selectedPdfObject = (PdfContentObject)DataSourceContentBox.SelectedItem;
-            OpenListItem(selectedPdfObject);
-        }
-
-        private void OpenListItem(PdfContentObject pdfContentObject)
-        {
-            FileContent fileContent = new FileContent(pdfContentObject);
+            FileContent fileContent = new FileContent(selectedPdfObject);
             fileContent.Show();
         }
 
-        private void FilterBox_OnEnterPressed(object sender, KeyEventArgs e)
+        private async void DataSource_OnEnterPressed(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter || string.IsNullOrEmpty(DataSourceTextBox.Text)) return;
+
+            LoadingAnimation.Visible = true;
+            _dataSource = DatasourceManager.SaveDataSource(DataSourceTextBox, DataSourceGroup);
+
+            await Task.Run(() =>
+            {
+                FillContentBoxFromDataSource(_dataSource);
+            });
+
+            LoadingAnimation.Visible = false;
+            _contentList = DataSourceContentBox;
+        }
+
+        private async void FilterBox_OnEnterPressed(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter) return;
+            LoadingAnimation.Visible = true;
 
             if (string.IsNullOrEmpty(FilterTextBox.Text))
             {
-                FillContentBoxWithDataSourceContent(_dataSource);
-                return; 
-            }
-
-            List<PdfContentObject> localList = new List<PdfContentObject>();
-
-            foreach (PdfContentObject item in _contentList.Items)
-            {
-                if (item.Text.ToLower().Contains(FilterTextBox.Text.ToLower()))
+                await Task.Run(() =>
                 {
-                    localList.Add(item);
-                }
+                    FillContentBoxFromDataSource(_dataSource);
+                });
             }
-
-            if (localList.Count > 0)
+            else
             {
-                DataSourceContentBox.Items.Clear();
-
-                foreach(PdfContentObject filteredObject in localList)
+                List<PdfContentObject> localList = DataboxController.CreateLocalList(_contentList, FilterTextBox.Text);
+                await Task.Run(() =>
                 {
-                    DataSourceContentBox.Items.Add(filteredObject);
-                }
+                    FillContenBoxFromList(localList);
+                });
             }
+
+            LoadingAnimation.Visible = false;
         }
     }
 }
