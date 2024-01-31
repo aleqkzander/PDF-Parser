@@ -28,21 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.DataSourceGroup = new System.Windows.Forms.GroupBox();
+            this.DataSourceTextBox = new System.Windows.Forms.TextBox();
+            this.DataSourceGroup.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // DataSourceGroup
+            // 
+            this.DataSourceGroup.Controls.Add(this.DataSourceTextBox);
+            this.DataSourceGroup.Location = new System.Drawing.Point(12, 12);
+            this.DataSourceGroup.Name = "DataSourceGroup";
+            this.DataSourceGroup.Size = new System.Drawing.Size(460, 52);
+            this.DataSourceGroup.TabIndex = 0;
+            this.DataSourceGroup.TabStop = false;
+            this.DataSourceGroup.Text = "Datasource";
+            // 
+            // DataSourceTextBox
+            // 
+            this.DataSourceTextBox.Location = new System.Drawing.Point(6, 19);
+            this.DataSourceTextBox.Name = "DataSourceTextBox";
+            this.DataSourceTextBox.Size = new System.Drawing.Size(448, 20);
+            this.DataSourceTextBox.TabIndex = 0;
             // 
             // Welcome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 461);
+            this.Controls.Add(this.DataSourceGroup);
             this.Name = "Welcome";
             this.Text = "PDF-Parser";
             this.Load += new System.EventHandler(this.Welcome_Load);
+            this.DataSourceGroup.ResumeLayout(false);
+            this.DataSourceGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.GroupBox DataSourceGroup;
+        private System.Windows.Forms.TextBox DataSourceTextBox;
     }
 }
 

@@ -1,0 +1,10 @@
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Debug\PDF-Parser.exe.config
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Debug\PDF-Parser.exe
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Debug\PDF-Parser.pdb
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.csproj.AssemblyReference.cache
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF_Parser.Properties.Resources.resources
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF_Parser.Welcome.resources
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.csproj.GenerateResource.cache
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.csproj.CoreCompileInputs.cache
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.exe
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.pdb
