@@ -63,6 +63,7 @@ namespace PDF_Parser
 
         private void OpenListItem(object item)
         {
+            string itemName = item.ToString();
             string listItemPath = Path.Combine(_dataSource, item.ToString());
             string fileContent = OpenPdfFile(listItemPath);
             MessageBox.Show(fileContent);

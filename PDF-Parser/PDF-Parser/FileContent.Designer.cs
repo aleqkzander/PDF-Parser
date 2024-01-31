@@ -38,7 +38,7 @@
             // 
             // FileContentBox
             // 
-            this.FileContentBox.Location = new System.Drawing.Point(84, 167);
+            this.FileContentBox.Location = new System.Drawing.Point(12, 28);
             this.FileContentBox.Name = "FileContentBox";
             this.FileContentBox.Size = new System.Drawing.Size(100, 96);
             this.FileContentBox.TabIndex = 0;
