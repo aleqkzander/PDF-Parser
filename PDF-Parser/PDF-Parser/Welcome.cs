@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,11 +28,34 @@ namespace PDF_Parser
             if (e.KeyCode != Keys.Enter || string.IsNullOrEmpty(DataSourceTextBox.Text)) return;
 
             _dataSource = DatasourceManager.SaveDataSource(DataSourceTextBox, DataSourceGroup);
+            FillContentBoxWithDataSourceContent(_dataSource);
         }
 
         private void Welcome_Load(object sender, EventArgs e)
         {
-            _dataSource = DatasourceManager.LoadDataSource(DataSourceTextBox, DataSourceGroup);
+            _dataSource = DatasourceManager.LoadDataSource(DataSourceGroup);
+            FillContentBoxWithDataSourceContent(_dataSource);
+        }
+
+        private void FillContentBoxWithDataSourceContent(string datasource)
+        {
+            if (string.IsNullOrEmpty(datasource)) return;
+
+            DataSourceContentBox.Items.Clear();
+
+            try
+            {
+                string[] pdfFiles = Directory.GetFiles(_dataSource, "*.pdf");
+
+                foreach (string pdfFile in pdfFiles)
+                {
+                    DataSourceContentBox.Items.Add(Path.GetFileName(pdfFile));
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }
