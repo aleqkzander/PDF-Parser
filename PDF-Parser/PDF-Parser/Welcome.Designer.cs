@@ -102,7 +102,7 @@
             this.DataSourceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DataSourceTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DataSourceTextBox.Name = "DataSourceTextBox";
-            this.DataSourceTextBox.Size = new System.Drawing.Size(100, 25);
+            this.DataSourceTextBox.Size = new System.Drawing.Size(225, 25);
             this.DataSourceTextBox.ToolTipText = "Set data source";
             // 
             // toolStripSeparator2
@@ -121,7 +121,7 @@
             this.FilterTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FilterTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FilterTextBox.Name = "FilterTextBox";
-            this.FilterTextBox.Size = new System.Drawing.Size(100, 25);
+            this.FilterTextBox.Size = new System.Drawing.Size(225, 25);
             this.FilterTextBox.ToolTipText = "Set filter";
             // 
             // Welcome
