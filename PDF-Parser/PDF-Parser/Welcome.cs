@@ -21,7 +21,7 @@ namespace PDF_Parser
 
         private async void Welcome_Load(object sender, EventArgs e)
         {
-            _dataSource = DatasourceManager.LoadDataSource(DataSourceGroup);
+            _dataSource = DatasourceManager.LoadDataSource();
 
             await Task.Run(() =>
             {
@@ -76,10 +76,6 @@ namespace PDF_Parser
 
         private void DataSourceContentBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            /*
-             * Open a new window
-             */
-
             if (DataSourceContentBox.SelectedItem == null) return;
 
             PdfContentObject selectedPdfObject = (PdfContentObject)DataSourceContentBox.SelectedItem;
@@ -92,7 +88,7 @@ namespace PDF_Parser
             if (e.KeyCode != Keys.Enter || string.IsNullOrEmpty(DataSourceTextBox.Text)) return;
 
             LoadingAnimation.Visible = true;
-            _dataSource = DatasourceManager.SaveDataSource(DataSourceTextBox, DataSourceGroup);
+            _dataSource = DataSourceTextBox.Text;
 
             await Task.Run(() =>
             {
@@ -125,6 +121,14 @@ namespace PDF_Parser
             }
 
             LoadingAnimation.Visible = false;
+        }
+
+        private void SaveDatasourceBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(_dataSource)) return;
+
+            MessageBox.Show("Debug Save: " + _dataSource);
+            //DatasourceManager.SaveDataSource(DataSourceTextBox.Text);
         }
     }
 }
