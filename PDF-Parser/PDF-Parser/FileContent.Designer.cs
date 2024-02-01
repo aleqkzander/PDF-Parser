@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileContent));
             this.FileContentBox = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.FilterContentTextBox = new System.Windows.Forms.TextBox();
@@ -87,6 +88,7 @@
             this.ClientSize = new System.Drawing.Size(813, 630);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FileContent";
             this.Text = "Filename";
             this.groupBox1.ResumeLayout(false);

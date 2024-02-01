@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Welcome));
             this.DataSourceContentBox = new System.Windows.Forms.ListBox();
-            this.LoadingAnimation = new System.Windows.Forms.PictureBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.SaveDatasourceBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.DataSourceTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.FilterTextBox = new System.Windows.Forms.ToolStripTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.LoadingAnimation)).BeginInit();
+            this.SaveDatasourceBtn = new System.Windows.Forms.ToolStripButton();
+            this.LoadingAnimation = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LoadingAnimation)).BeginInit();
             this.SuspendLayout();
             // 
             // DataSourceContentBox
@@ -48,23 +48,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataSourceContentBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DataSourceContentBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataSourceContentBox.FormattingEnabled = true;
+            this.DataSourceContentBox.ItemHeight = 16;
             this.DataSourceContentBox.Location = new System.Drawing.Point(0, 28);
             this.DataSourceContentBox.Name = "DataSourceContentBox";
-            this.DataSourceContentBox.Size = new System.Drawing.Size(628, 574);
+            this.DataSourceContentBox.Size = new System.Drawing.Size(628, 562);
             this.DataSourceContentBox.TabIndex = 1;
             this.DataSourceContentBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DataSourceContentBox_MouseDoubleClick);
-            // 
-            // LoadingAnimation
-            // 
-            this.LoadingAnimation.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LoadingAnimation.Image = global::PDF_Parser.Properties.Resources.loading;
-            this.LoadingAnimation.Location = new System.Drawing.Point(258, 244);
-            this.LoadingAnimation.Name = "LoadingAnimation";
-            this.LoadingAnimation.Size = new System.Drawing.Size(112, 109);
-            this.LoadingAnimation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LoadingAnimation.TabIndex = 2;
-            this.LoadingAnimation.TabStop = false;
             // 
             // toolStrip1
             // 
@@ -81,16 +72,6 @@
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // SaveDatasourceBtn
-            // 
-            this.SaveDatasourceBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveDatasourceBtn.Image = ((System.Drawing.Image)(resources.GetObject("SaveDatasourceBtn.Image")));
-            this.SaveDatasourceBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveDatasourceBtn.Name = "SaveDatasourceBtn";
-            this.SaveDatasourceBtn.Size = new System.Drawing.Size(23, 22);
-            this.SaveDatasourceBtn.Text = "Save data source";
-            this.SaveDatasourceBtn.Click += new System.EventHandler(this.SaveDatasourceBtn_Click);
-            // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
@@ -102,7 +83,7 @@
             this.DataSourceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DataSourceTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DataSourceTextBox.Name = "DataSourceTextBox";
-            this.DataSourceTextBox.Size = new System.Drawing.Size(225, 25);
+            this.DataSourceTextBox.Size = new System.Drawing.Size(240, 25);
             this.DataSourceTextBox.ToolTipText = "Set data source";
             // 
             // toolStripSeparator2
@@ -121,24 +102,47 @@
             this.FilterTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FilterTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FilterTextBox.Name = "FilterTextBox";
-            this.FilterTextBox.Size = new System.Drawing.Size(225, 25);
+            this.FilterTextBox.Size = new System.Drawing.Size(240, 25);
             this.FilterTextBox.ToolTipText = "Set filter";
+            // 
+            // SaveDatasourceBtn
+            // 
+            this.SaveDatasourceBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SaveDatasourceBtn.Image = global::PDF_Parser.Properties.Resources.SaveDiskettePng;
+            this.SaveDatasourceBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveDatasourceBtn.Name = "SaveDatasourceBtn";
+            this.SaveDatasourceBtn.Size = new System.Drawing.Size(23, 22);
+            this.SaveDatasourceBtn.Text = "Save data source";
+            this.SaveDatasourceBtn.Click += new System.EventHandler(this.SaveDatasourceBtn_Click);
+            // 
+            // LoadingAnimation
+            // 
+            this.LoadingAnimation.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LoadingAnimation.Image = global::PDF_Parser.Properties.Resources.loading;
+            this.LoadingAnimation.Location = new System.Drawing.Point(289, 273);
+            this.LoadingAnimation.Name = "LoadingAnimation";
+            this.LoadingAnimation.Size = new System.Drawing.Size(50, 50);
+            this.LoadingAnimation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LoadingAnimation.TabIndex = 2;
+            this.LoadingAnimation.TabStop = false;
             // 
             // Welcome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 597);
+            this.ClientSize = new System.Drawing.Size(628, 582);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.LoadingAnimation);
             this.Controls.Add(this.DataSourceContentBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Welcome";
             this.Text = "PDF-Parser";
             this.Load += new System.EventHandler(this.Welcome_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.LoadingAnimation)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LoadingAnimation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
