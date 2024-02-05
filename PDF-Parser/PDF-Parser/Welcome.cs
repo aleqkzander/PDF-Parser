@@ -11,12 +11,14 @@ namespace PDF_Parser
     {
         private string _dataSource;
         private ListBox _contentList;
+        private readonly List<PdfContentObject> _initialContentObjects;
 
         public Welcome()
         {
             InitializeComponent();
             DataSourceTextBox.KeyUp += DataSource_OnEnterPressed;
             FilterTextBox.KeyUp += FilterBox_OnEnterPressed;
+            _initialContentObjects = new List<PdfContentObject>();
         }
 
         private async void Welcome_Load(object sender, EventArgs e)
@@ -36,6 +38,7 @@ namespace PDF_Parser
         {
             if (string.IsNullOrEmpty(datasource)) return;
             DataboxController.ClearContentBox(DataSourceContentBox);
+            _initialContentObjects.Clear();
 
             try
             {
@@ -47,12 +50,12 @@ namespace PDF_Parser
                     string name = Path.GetFileName(pdfFile);
                     string text = ReaderHelper.Read(path);
                     PdfContentObject pdfContentObject = new PdfContentObject(path, name,text);
+                    _initialContentObjects.Add(pdfContentObject);
                     DataboxController.FillContentBox(DataSourceContentBox, pdfContentObject);
                 }
             }
-            catch (Exception exception)
+            catch
             {
-                MessageBox.Show(exception.Message);
             }
         }
 
@@ -60,7 +63,7 @@ namespace PDF_Parser
         {
             if (pdfContentObjects.Count == 0) return;
             DataboxController.ClearContentBox(DataSourceContentBox);
-
+            
             try
             {
                 foreach (PdfContentObject filteredObject in pdfContentObjects)
@@ -68,9 +71,8 @@ namespace PDF_Parser
                     DataboxController.FillContentBox(DataSourceContentBox, filteredObject);
                 }
             }
-            catch (Exception exception)
+            catch
             {
-                MessageBox.Show(exception.Message);
             }
         }
 
@@ -78,9 +80,15 @@ namespace PDF_Parser
         {
             if (DataSourceContentBox.SelectedItem == null) return;
 
-            PdfContentObject selectedPdfObject = (PdfContentObject)DataSourceContentBox.SelectedItem;
-            FileContent fileContent = new FileContent(selectedPdfObject);
-            fileContent.Show();
+            try
+            {
+                PdfContentObject selectedPdfObject = (PdfContentObject)DataSourceContentBox.SelectedItem;
+                FileContent fileContent = new FileContent(selectedPdfObject);
+                fileContent.Show();
+            }
+            catch
+            {
+            }
         }
 
         private async void DataSource_OnEnterPressed(object sender, KeyEventArgs e)
@@ -90,10 +98,16 @@ namespace PDF_Parser
             LoadingAnimation.Visible = true;
             _dataSource = DataSourceTextBox.Text;
 
-            await Task.Run(() =>
+            try
             {
-                FillContentBoxFromDataSource(_dataSource);
-            });
+                await Task.Run(() =>
+                {
+                    FillContentBoxFromDataSource(_dataSource);
+                });
+            }
+            catch
+            {
+            }
 
             LoadingAnimation.Visible = false;
             _contentList = DataSourceContentBox;
@@ -104,20 +118,26 @@ namespace PDF_Parser
             if (e.KeyCode != Keys.Enter) return;
             LoadingAnimation.Visible = true;
 
-            if (string.IsNullOrEmpty(FilterTextBox.Text))
+            try
             {
-                await Task.Run(() =>
+                if (string.IsNullOrEmpty(FilterTextBox.Text))
                 {
-                    FillContentBoxFromDataSource(_dataSource);
-                });
+                    await Task.Run(() =>
+                    {
+                        FillContenBoxFromList(_initialContentObjects);
+                    });
+                }
+                else
+                {
+                    List<PdfContentObject> localList = DataboxController.CreateLocalList(_contentList, FilterTextBox.Text);
+                    await Task.Run(() =>
+                    {
+                        FillContenBoxFromList(localList);
+                    });
+                }
             }
-            else
+            catch
             {
-                List<PdfContentObject> localList = DataboxController.CreateLocalList(_contentList, FilterTextBox.Text);
-                await Task.Run(() =>
-                {
-                    FillContenBoxFromList(localList);
-                });
             }
 
             LoadingAnimation.Visible = false;
@@ -126,8 +146,6 @@ namespace PDF_Parser
         private void SaveDatasourceBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(_dataSource)) return;
-
-            MessageBox.Show("Debug Save: " + _dataSource);
             //DatasourceManager.SaveDataSource(DataSourceTextBox.Text);
         }
     }

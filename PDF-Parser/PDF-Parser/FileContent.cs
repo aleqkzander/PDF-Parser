@@ -10,7 +10,7 @@ namespace PDF_Parser
     {
         private List<int> searchResults;
         private int currentIndex;
-        string originalText;
+        readonly string originalText;
 
         public FileContent(PdfContentObject pdfContentObject)
         {
@@ -45,9 +45,8 @@ namespace PDF_Parser
                     FileContentBox.ScrollToCaret();
                 }
             }
-            catch (Exception exception)
+            catch
             {
-                MessageBox.Show(exception.Message);
             }
         }
 
