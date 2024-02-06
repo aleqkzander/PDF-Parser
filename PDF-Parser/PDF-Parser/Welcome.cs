@@ -90,8 +90,8 @@ namespace PDF_Parser
         private async void DataSource_OnEnterPressed(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter || string.IsNullOrEmpty(DataSourceTextBox.Text)) return;
-
             LoadingAnimation.Visible = true;
+
             _dataSource = DataSourceTextBox.Text;
 
             try
@@ -111,7 +111,7 @@ namespace PDF_Parser
         private async void FilterBox_OnEnterPressed(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter) return;
-            LoadingAnimation.Visible = true;
+            LoadingAnimation.Visible = false;
 
             try
             {

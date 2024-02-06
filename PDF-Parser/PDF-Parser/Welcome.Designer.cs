@@ -32,15 +32,17 @@
             this.DataSourceContentBox = new System.Windows.Forms.ListBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.SaveDatasourceBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.DataSourceTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.FilterTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.LoadingAnimation = new System.Windows.Forms.PictureBox();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.LoadingAnimation = new System.Windows.Forms.ToolStripButton();
+            this.ShowHelpBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LoadingAnimation)).BeginInit();
             this.SuspendLayout();
             // 
             // DataSourceContentBox
@@ -67,7 +69,11 @@
             this.DataSourceTextBox,
             this.toolStripSeparator2,
             this.toolStripLabel2,
-            this.FilterTextBox});
+            this.FilterTextBox,
+            this.toolStripSeparator3,
+            this.LoadingAnimation,
+            this.ShowHelpBtn,
+            this.toolStripSeparator4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(628, 25);
@@ -83,6 +89,11 @@
             this.SaveDatasourceBtn.Size = new System.Drawing.Size(23, 22);
             this.SaveDatasourceBtn.Text = "Save current list";
             this.SaveDatasourceBtn.Click += new System.EventHandler(this.SaveDatasourceBtn_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripLabel1
             // 
@@ -117,21 +128,34 @@
             this.FilterTextBox.Size = new System.Drawing.Size(150, 25);
             this.FilterTextBox.ToolTipText = "Set filter";
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
             // LoadingAnimation
             // 
-            this.LoadingAnimation.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LoadingAnimation.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.LoadingAnimation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.LoadingAnimation.Image = global::PDF_Parser.Properties.Resources.loading;
-            this.LoadingAnimation.Location = new System.Drawing.Point(566, 50);
+            this.LoadingAnimation.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.LoadingAnimation.Name = "LoadingAnimation";
-            this.LoadingAnimation.Size = new System.Drawing.Size(50, 50);
-            this.LoadingAnimation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LoadingAnimation.TabIndex = 2;
-            this.LoadingAnimation.TabStop = false;
+            this.LoadingAnimation.Size = new System.Drawing.Size(23, 22);
+            this.LoadingAnimation.Text = "toolStripButton1";
             // 
-            // toolStripSeparator1
+            // ShowHelpBtn
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.ShowHelpBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ShowHelpBtn.Image = ((System.Drawing.Image)(resources.GetObject("ShowHelpBtn.Image")));
+            this.ShowHelpBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ShowHelpBtn.Name = "ShowHelpBtn";
+            this.ShowHelpBtn.Size = new System.Drawing.Size(23, 22);
+            this.ShowHelpBtn.Text = "toolStripButton1";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
             // Welcome
             // 
@@ -139,7 +163,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 582);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.LoadingAnimation);
             this.Controls.Add(this.DataSourceContentBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -149,7 +172,6 @@
             this.Load += new System.EventHandler(this.Welcome_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LoadingAnimation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,7 +179,6 @@
 
         #endregion
         private System.Windows.Forms.ListBox DataSourceContentBox;
-        private System.Windows.Forms.PictureBox LoadingAnimation;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton SaveDatasourceBtn;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
@@ -166,6 +187,10 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripTextBox FilterTextBox;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton LoadingAnimation;
+        private System.Windows.Forms.ToolStripButton ShowHelpBtn;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 
