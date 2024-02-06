@@ -10,8 +10,7 @@ namespace PDF_Parser
     public partial class Welcome : Form
     {
         private string _dataSource;
-        private ListBox _contentList;
-        private readonly List<PdfContentObject> _initialContentObjects;
+        private List<PdfContentObject> _initialContentObjects;
 
         public Welcome()
         {
@@ -23,15 +22,24 @@ namespace PDF_Parser
 
         private async void Welcome_Load(object sender, EventArgs e)
         {
-            _dataSource = DatasourceManager.LoadDataSource();
+            string _initialContentObjectsString = DatasourceManager.LoadDataSource();
 
-            await Task.Run(() =>
+            if (string.IsNullOrEmpty(_initialContentObjectsString))
             {
-                FillContentBoxFromDataSource(_dataSource);
-            });
+                LoadingAnimation.Visible = false;
+                return;
+            }
+            else
+            {
+                _initialContentObjects = JsonHelper.ConvertJsonToList(_initialContentObjectsString);
 
-            LoadingAnimation.Visible = false;
-            _contentList = DataSourceContentBox;
+                await Task.Run(() =>
+                {
+                    FillContenBoxFromList(_initialContentObjects);
+                });
+
+                LoadingAnimation.Visible = false;
+            }
         }
 
         private void FillContentBoxFromDataSource(string datasource)
@@ -40,22 +48,16 @@ namespace PDF_Parser
             DataboxController.ClearContentBox(DataSourceContentBox);
             _initialContentObjects.Clear();
 
-            try
-            {
-                string[] pdfFiles = Directory.GetFiles(_dataSource, "*.pdf");
+            string[] pdfFiles = Directory.GetFiles(_dataSource, "*.pdf");
 
-                foreach (string pdfFile in pdfFiles)
-                {
-                    string path = Path.Combine(datasource, pdfFile);
-                    string name = Path.GetFileName(pdfFile);
-                    string text = ReaderHelper.Read(path);
-                    PdfContentObject pdfContentObject = new PdfContentObject(path, name,text);
-                    _initialContentObjects.Add(pdfContentObject);
-                    DataboxController.FillContentBox(DataSourceContentBox, pdfContentObject);
-                }
-            }
-            catch
+            foreach (string pdfFile in pdfFiles)
             {
+                string path = Path.Combine(datasource, pdfFile);
+                string name = Path.GetFileName(pdfFile);
+                string text = ReaderHelper.Read(path);
+                PdfContentObject pdfContentObject = new PdfContentObject(path, name, text);
+                _initialContentObjects.Add(pdfContentObject);
+                DataboxController.FillContentBox(DataSourceContentBox, pdfContentObject);
             }
         }
 
@@ -63,16 +65,10 @@ namespace PDF_Parser
         {
             if (pdfContentObjects.Count == 0) return;
             DataboxController.ClearContentBox(DataSourceContentBox);
-            
-            try
+
+            foreach (PdfContentObject filteredObject in pdfContentObjects)
             {
-                foreach (PdfContentObject filteredObject in pdfContentObjects)
-                {
-                    DataboxController.FillContentBox(DataSourceContentBox, filteredObject);
-                }
-            }
-            catch
-            {
+                DataboxController.FillContentBox(DataSourceContentBox, filteredObject);
             }
         }
 
@@ -110,7 +106,6 @@ namespace PDF_Parser
             }
 
             LoadingAnimation.Visible = false;
-            _contentList = DataSourceContentBox;
         }
 
         private async void FilterBox_OnEnterPressed(object sender, KeyEventArgs e)
@@ -129,7 +124,7 @@ namespace PDF_Parser
                 }
                 else
                 {
-                    List<PdfContentObject> localList = DataboxController.CreateLocalList(_contentList, FilterTextBox.Text);
+                    List<PdfContentObject> localList = DataboxController.CreateLocalList(_initialContentObjects, FilterTextBox.Text);
                     await Task.Run(() =>
                     {
                         FillContenBoxFromList(localList);
@@ -145,8 +140,20 @@ namespace PDF_Parser
 
         private void SaveDatasourceBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(_dataSource)) return;
-            //DatasourceManager.SaveDataSource(DataSourceTextBox.Text);
+            if (_initialContentObjects == null || _initialContentObjects.Count == 0) return;
+
+            try
+            {
+                Properties.Settings.Default.Reset();
+                string jsonList = JsonHelper.ConvertListToJson(_initialContentObjects);
+                Properties.Settings.Default.Datasource = jsonList;
+                Properties.Settings.Default.Save();
+                MessageBox.Show("List saved successfully");
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Failed saving the list..." + $"\n{exception.Message}");
+            }
         }
     }
 }

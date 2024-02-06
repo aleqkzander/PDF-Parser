@@ -31,13 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Welcome));
             this.DataSourceContentBox = new System.Windows.Forms.ListBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.SaveDatasourceBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.DataSourceTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.FilterTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.SaveDatasourceBtn = new System.Windows.Forms.ToolStripButton();
             this.LoadingAnimation = new System.Windows.Forms.PictureBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoadingAnimation)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +62,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SaveDatasourceBtn,
+            this.toolStripSeparator1,
             this.toolStripLabel1,
             this.DataSourceTextBox,
             this.toolStripSeparator2,
@@ -72,18 +74,28 @@
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // SaveDatasourceBtn
+            // 
+            this.SaveDatasourceBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SaveDatasourceBtn.Image = global::PDF_Parser.Properties.Resources.SaveDiskettePng;
+            this.SaveDatasourceBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveDatasourceBtn.Name = "SaveDatasourceBtn";
+            this.SaveDatasourceBtn.Size = new System.Drawing.Size(23, 22);
+            this.SaveDatasourceBtn.Text = "Save current list";
+            this.SaveDatasourceBtn.Click += new System.EventHandler(this.SaveDatasourceBtn_Click);
+            // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(66, 22);
-            this.toolStripLabel1.Text = "Datasource";
+            this.toolStripLabel1.Size = new System.Drawing.Size(80, 22);
+            this.toolStripLabel1.Text = "Datasource = ";
             // 
             // DataSourceTextBox
             // 
             this.DataSourceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DataSourceTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DataSourceTextBox.Name = "DataSourceTextBox";
-            this.DataSourceTextBox.Size = new System.Drawing.Size(240, 25);
+            this.DataSourceTextBox.Size = new System.Drawing.Size(150, 25);
             this.DataSourceTextBox.ToolTipText = "Set data source";
             // 
             // toolStripSeparator2
@@ -94,37 +106,32 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(33, 22);
-            this.toolStripLabel2.Text = "Filter";
+            this.toolStripLabel2.Size = new System.Drawing.Size(47, 22);
+            this.toolStripLabel2.Text = "Filter = ";
             // 
             // FilterTextBox
             // 
             this.FilterTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FilterTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FilterTextBox.Name = "FilterTextBox";
-            this.FilterTextBox.Size = new System.Drawing.Size(240, 25);
+            this.FilterTextBox.Size = new System.Drawing.Size(150, 25);
             this.FilterTextBox.ToolTipText = "Set filter";
-            // 
-            // SaveDatasourceBtn
-            // 
-            this.SaveDatasourceBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveDatasourceBtn.Image = global::PDF_Parser.Properties.Resources.SaveDiskettePng;
-            this.SaveDatasourceBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveDatasourceBtn.Name = "SaveDatasourceBtn";
-            this.SaveDatasourceBtn.Size = new System.Drawing.Size(23, 22);
-            this.SaveDatasourceBtn.Text = "Save data source";
-            this.SaveDatasourceBtn.Click += new System.EventHandler(this.SaveDatasourceBtn_Click);
             // 
             // LoadingAnimation
             // 
             this.LoadingAnimation.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.LoadingAnimation.Image = global::PDF_Parser.Properties.Resources.loading;
-            this.LoadingAnimation.Location = new System.Drawing.Point(289, 273);
+            this.LoadingAnimation.Location = new System.Drawing.Point(566, 50);
             this.LoadingAnimation.Name = "LoadingAnimation";
             this.LoadingAnimation.Size = new System.Drawing.Size(50, 50);
             this.LoadingAnimation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.LoadingAnimation.TabIndex = 2;
             this.LoadingAnimation.TabStop = false;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // Welcome
             // 
@@ -158,6 +165,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripTextBox FilterTextBox;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

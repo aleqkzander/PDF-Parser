@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PDF_Parser.Utility
@@ -21,10 +18,10 @@ namespace PDF_Parser.Utility
                 => contentbox.Items.Add(pdfContentObject)));
         }
 
-        public static List<PdfContentObject> CreateLocalList(ListBox listBox, string filter)
+        public static List<PdfContentObject> CreateLocalList(List<PdfContentObject> pdfContentObjects, string filter)
         {
             List<PdfContentObject> localList = new List<PdfContentObject>();
-            foreach (PdfContentObject item in listBox.Items)
+            foreach (PdfContentObject item in pdfContentObjects)
             {
                 if (item.Text.ToLower().Contains(filter.ToLower()))
                 {

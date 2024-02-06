@@ -137,6 +137,7 @@
     </Compile>
     <Compile Include="Utility\DataboxController.cs" />
     <Compile Include="Utility\DatasourceManager.cs" />
+    <Compile Include="Utility\JsonHelper.cs" />
     <Compile Include="Utility\PdfContentObject.cs" />
     <Compile Include="Utility\ReaderHelper.cs" />
     <Compile Include="Welcome.cs">
