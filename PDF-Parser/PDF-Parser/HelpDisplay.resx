@@ -117,4 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>- HOW TO USE PDF-PARSER -
+
+1. PROVIDE A DATA SOURCE
+ Copy and paste the absolute path of the desired data source. Only PDF files will be searched within this path
+
+2. INDEXING AND LOADING
+ Upon loading, the PDF files will be indexed and added to the box, displaying their file names
+
+3. FILTERING
+ You can filter the displayed files by typing text into the filter box. 
+ After filtering, only PDF files containing the corresponding text will be displayed.
+
+4. SAVING
+ Press the save button to preserve the current list. 
+ When reopening the application, the saved list will be restored, and indexing will not be required again.
+
+5. PROCESSING
+ When work is being done, a loading circle will display a processing status.</value>
+  </data>
 </root>

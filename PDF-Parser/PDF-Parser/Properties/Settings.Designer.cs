@@ -22,17 +22,5 @@ namespace PDF_Parser.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Datasource {
-            get {
-                return ((string)(this["Datasource"]));
-            }
-            set {
-                this["Datasource"] = value;
-            }
-        }
     }
 }

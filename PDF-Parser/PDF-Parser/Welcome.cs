@@ -22,7 +22,7 @@ namespace PDF_Parser
 
         private async void Welcome_Load(object sender, EventArgs e)
         {
-            string _initialContentObjectsString = DatasourceManager.LoadDataSource();
+            string _initialContentObjectsString = DatasourceManager.LoadCurrentList();
 
             if (string.IsNullOrEmpty(_initialContentObjectsString))
             {
@@ -47,6 +47,7 @@ namespace PDF_Parser
             if (string.IsNullOrEmpty(datasource)) return;
             DataboxController.ClearContentBox(DataSourceContentBox);
             _initialContentObjects.Clear();
+            DatasourceManager.DeleteCurrentList();
 
             string[] pdfFiles = Directory.GetFiles(_dataSource, "*.pdf");
 
@@ -144,10 +145,8 @@ namespace PDF_Parser
 
             try
             {
-                Properties.Settings.Default.Reset();
                 string jsonList = JsonHelper.ConvertListToJson(_initialContentObjects);
-                Properties.Settings.Default.Datasource = jsonList;
-                Properties.Settings.Default.Save();
+                DatasourceManager.SaveCurrentList(jsonList);
                 MessageBox.Show("List saved successfully");
             }
             catch (Exception exception)

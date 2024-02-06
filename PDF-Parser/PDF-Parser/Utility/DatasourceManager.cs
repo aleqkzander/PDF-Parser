@@ -1,21 +1,66 @@
-﻿using System.Windows.Forms;
+﻿using System.IO;
+using System.Windows.Forms;
 
 namespace PDF_Parser.Utility
 {
     public class DatasourceManager
     {
-        public static string SaveDataSource(string datasource)
+        private static bool IsSaveFilePresent()
         {
-            string _dataSource = datasource;
-            Properties.Settings.Default.Datasource = _dataSource;
-            Properties.Settings.Default.Save();
-            return _dataSource;
+            string folderPath = Path.Combine(Application.StartupPath, "save");
+            string dataFile = Path.Combine(folderPath, "saved_list");
+
+            if (File.Exists(dataFile))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public static string LoadDataSource()
+        public static void SaveCurrentList(string content)
         {
-            string _dataSource = Properties.Settings.Default.Datasource;
-            return _dataSource;
+            string folderPath = Path.Combine(Application.StartupPath, "save");
+            string dataFile = Path.Combine(folderPath, "saved_list");
+
+            if (Directory.Exists(folderPath) == false)
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            if (IsSaveFilePresent() == false)
+            {
+                File.WriteAllText(dataFile, content);
+            }
+        }
+
+        public static string LoadCurrentList()
+        {
+            string folderPath = Path.Combine(Application.StartupPath, "save");
+            string dataFile = Path.Combine(folderPath, "saved_list");
+
+            if (IsSaveFilePresent())
+            {
+                string jsonUser = File.ReadAllText(dataFile);
+                return jsonUser;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+        public static void DeleteCurrentList()
+        {
+            string folderPath = Path.Combine(Application.StartupPath, "save");
+            string dataFile = Path.Combine(folderPath, "saved_list");
+
+            if (IsSaveFilePresent())
+            {
+                File.Delete(dataFile);
+            }
         }
     }
 }
