@@ -126,3 +126,4 @@ D:\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.csproj.CoreCompileInput
 D:\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.csproj.CopyComplete
 D:\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.exe
 D:\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.pdb
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF_Parser.HelpDisplay.resources

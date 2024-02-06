@@ -135,6 +135,12 @@
     <Compile Include="FileContent.Designer.cs">
       <DependentUpon>FileContent.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelpDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpDisplay.Designer.cs">
+      <DependentUpon>HelpDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utility\DataboxController.cs" />
     <Compile Include="Utility\DatasourceManager.cs" />
     <Compile Include="Utility\JsonHelper.cs" />
@@ -150,6 +156,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FileContent.resx">
       <DependentUpon>FileContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpDisplay.resx">
+      <DependentUpon>HelpDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -183,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PdfParserLogoIcon.ico" />
+    <None Include="Resources\PdfParserExplenationUpdated.png" />
     <None Include="Resources\HelpButton.png" />
     <None Include="Resources\SaveDiskettePng.png" />
   </ItemGroup>

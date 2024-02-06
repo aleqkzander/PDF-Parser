@@ -83,6 +83,16 @@ namespace PDF_Parser.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PdfParserExplenationUpdated {
+            get {
+                object obj = ResourceManager.GetObject("PdfParserExplenationUpdated", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SaveDiskettePng {
             get {
                 object obj = ResourceManager.GetObject("SaveDiskettePng", resourceCulture);

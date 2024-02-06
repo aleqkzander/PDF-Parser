@@ -158,7 +158,8 @@ namespace PDF_Parser
 
         private void ShowHelpBtn_Click(object sender, EventArgs e)
         {
-
+            HelpDisplay help = new HelpDisplay();
+            help.Show();
         }
     }
 }
