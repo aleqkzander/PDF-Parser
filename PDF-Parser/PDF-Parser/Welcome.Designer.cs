@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Welcome));
             this.DataSourceContentBox = new System.Windows.Forms.ListBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.SaveDatasourceBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.DataSourceTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -39,9 +38,10 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.FilterTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.SaveDatasourceBtn = new System.Windows.Forms.ToolStripButton();
             this.LoadingAnimation = new System.Windows.Forms.ToolStripButton();
             this.ShowHelpBtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,16 +80,6 @@
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // SaveDatasourceBtn
-            // 
-            this.SaveDatasourceBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveDatasourceBtn.Image = global::PDF_Parser.Properties.Resources.SaveDiskettePng;
-            this.SaveDatasourceBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveDatasourceBtn.Name = "SaveDatasourceBtn";
-            this.SaveDatasourceBtn.Size = new System.Drawing.Size(23, 22);
-            this.SaveDatasourceBtn.Text = "Save current list";
-            this.SaveDatasourceBtn.Click += new System.EventHandler(this.SaveDatasourceBtn_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -106,7 +96,7 @@
             this.DataSourceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DataSourceTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DataSourceTextBox.Name = "DataSourceTextBox";
-            this.DataSourceTextBox.Size = new System.Drawing.Size(150, 25);
+            this.DataSourceTextBox.Size = new System.Drawing.Size(195, 25);
             this.DataSourceTextBox.ToolTipText = "Set data source";
             // 
             // toolStripSeparator2
@@ -125,13 +115,28 @@
             this.FilterTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FilterTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FilterTextBox.Name = "FilterTextBox";
-            this.FilterTextBox.Size = new System.Drawing.Size(150, 25);
+            this.FilterTextBox.Size = new System.Drawing.Size(195, 25);
             this.FilterTextBox.ToolTipText = "Set filter";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // SaveDatasourceBtn
+            // 
+            this.SaveDatasourceBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SaveDatasourceBtn.Image = global::PDF_Parser.Properties.Resources.SaveDiskettePng;
+            this.SaveDatasourceBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveDatasourceBtn.Name = "SaveDatasourceBtn";
+            this.SaveDatasourceBtn.Size = new System.Drawing.Size(23, 22);
+            this.SaveDatasourceBtn.Text = "Save current list";
+            this.SaveDatasourceBtn.Click += new System.EventHandler(this.SaveDatasourceBtn_Click);
             // 
             // LoadingAnimation
             // 
@@ -146,16 +151,12 @@
             // ShowHelpBtn
             // 
             this.ShowHelpBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ShowHelpBtn.Image = ((System.Drawing.Image)(resources.GetObject("ShowHelpBtn.Image")));
+            this.ShowHelpBtn.Image = global::PDF_Parser.Properties.Resources.HelpButton;
             this.ShowHelpBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ShowHelpBtn.Name = "ShowHelpBtn";
-            this.ShowHelpBtn.Size = new System.Drawing.Size(23, 22);
+            this.ShowHelpBtn.Size = new System.Drawing.Size(23, 20);
             this.ShowHelpBtn.Text = "toolStripButton1";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            this.ShowHelpBtn.Click += new System.EventHandler(this.ShowHelpBtn_Click);
             // 
             // Welcome
             // 

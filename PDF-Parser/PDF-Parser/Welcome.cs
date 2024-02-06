@@ -155,5 +155,10 @@ namespace PDF_Parser
                 MessageBox.Show("Failed saving the list..." + $"\n{exception.Message}");
             }
         }
+
+        private void ShowHelpBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
