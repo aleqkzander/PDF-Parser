@@ -45,11 +45,23 @@ namespace PDF_Parser
         private void FillContentBoxFromDataSource(string datasource)
         {
             if (string.IsNullOrEmpty(datasource)) return;
+
             DataboxController.ClearContentBox(DataSourceContentBox);
             _initialContentObjects.Clear();
             DatasourceManager.DeleteCurrentList();
+            string[] pdfFiles;
 
-            string[] pdfFiles = Directory.GetFiles(_dataSource, "*.pdf");
+
+            DialogResult result = MessageBox.Show("Do you want to include subfolders?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                pdfFiles = Directory.GetFiles(_dataSource, "*.pdf", SearchOption.AllDirectories);
+            }
+            else
+            {
+                pdfFiles = Directory.GetFiles(_dataSource, "*.pdf");
+            }
 
             foreach (string pdfFile in pdfFiles)
             {
