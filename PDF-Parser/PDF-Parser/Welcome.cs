@@ -4,6 +4,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 
 namespace PDF_Parser
 {
@@ -70,7 +71,7 @@ namespace PDF_Parser
                 string text = ReaderHelper.Read(path);
                 PdfContentObject pdfContentObject = new PdfContentObject(path, name, text);
                 _initialContentObjects.Add(pdfContentObject);
-                DataboxController.FillContentBox(DataSourceContentBox, pdfContentObject);
+                DataboxController.FillContentBox(DataSourceContentBox, pdfContentObject, this);
             }
         }
 
@@ -81,7 +82,7 @@ namespace PDF_Parser
 
             foreach (PdfContentObject filteredObject in pdfContentObjects)
             {
-                DataboxController.FillContentBox(DataSourceContentBox, filteredObject);
+                DataboxController.FillContentBox(DataSourceContentBox, filteredObject, this);
             }
         }
 
@@ -163,7 +164,7 @@ namespace PDF_Parser
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Failed saving the list..." + $"\n{exception.Message}");
+                MessageBox.Show("Failed saving the list..." + $"\n\n{exception}");
             }
         }
 

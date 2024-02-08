@@ -12,10 +12,20 @@ namespace PDF_Parser.Utility
                 => contentbox.Items.Clear()));
         }
 
-        public static void FillContentBox(ListBox contentbox, PdfContentObject pdfContentObject)
+        public static void FillContentBox(ListBox contentbox, PdfContentObject pdfContentObject, Form form)
         {
-            contentbox?.Invoke((Action)(()
-                => contentbox.Items.Add(pdfContentObject)));
+            //contentbox?.Invoke((Action)(()
+            //    => contentbox.Items.Add(pdfContentObject)));
+
+            contentbox?.Invoke((Action)(() =>
+            {
+                contentbox.Items.Add(pdfContentObject);
+            }));
+
+            form?.Invoke((Action)(() =>
+            {
+                form.Text = "Pdf-Parser - " + contentbox.Items.Count.ToString();
+            }));
         }
 
         public static List<PdfContentObject> CreateLocalList(List<PdfContentObject> pdfContentObjects, string filter)

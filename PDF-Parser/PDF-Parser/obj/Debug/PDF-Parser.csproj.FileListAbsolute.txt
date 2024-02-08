@@ -62,6 +62,7 @@ C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\De
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Debug\System.ValueTuple.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.csproj.CopyComplete
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF_Parser.FileContent.resources
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF_Parser.HelpDisplay.resources
 D:\PDF-Parser\PDF-Parser\PDF-Parser\bin\Debug\PDF-Parser.exe.config
 D:\PDF-Parser\PDF-Parser\PDF-Parser\bin\Debug\PDF-Parser.exe
 D:\PDF-Parser\PDF-Parser\PDF-Parser\bin\Debug\PDF-Parser.pdb
@@ -119,6 +120,7 @@ D:\PDF-Parser\PDF-Parser\PDF-Parser\bin\Debug\System.Threading.Tasks.Extensions.
 D:\PDF-Parser\PDF-Parser\PDF-Parser\bin\Debug\System.ValueTuple.xml
 D:\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.csproj.AssemblyReference.cache
 D:\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF_Parser.FileContent.resources
+D:\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF_Parser.HelpDisplay.resources
 D:\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF_Parser.Properties.Resources.resources
 D:\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF_Parser.Welcome.resources
 D:\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.csproj.GenerateResource.cache
@@ -126,4 +128,3 @@ D:\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.csproj.CoreCompileInput
 D:\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.csproj.CopyComplete
 D:\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.exe
 D:\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF-Parser.pdb
-C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Debug\PDF_Parser.HelpDisplay.resources
