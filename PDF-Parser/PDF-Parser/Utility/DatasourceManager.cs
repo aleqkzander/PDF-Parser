@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace PDF_Parser.Utility
@@ -20,36 +21,59 @@ namespace PDF_Parser.Utility
             }
         }
 
-        public static void SaveCurrentList(string content)
+        public static void CreatSaveDirectory()
         {
             string folderPath = Path.Combine(Application.StartupPath, "save");
-            string dataFile = Path.Combine(folderPath, "saved_list");
 
             if (Directory.Exists(folderPath) == false)
             {
                 Directory.CreateDirectory(folderPath);
             }
-
-            if (IsSaveFilePresent() == false)
-            {
-                File.WriteAllText(dataFile, content);
-            }
         }
 
-        public static string LoadCurrentList()
+        public static void SaveList(List<PdfContentObject> list)
         {
             string folderPath = Path.Combine(Application.StartupPath, "save");
             string dataFile = Path.Combine(folderPath, "saved_list");
 
-            if (IsSaveFilePresent())
+            using (StreamWriter writer = new StreamWriter(dataFile))
             {
-                string jsonUser = File.ReadAllText(dataFile);
-                return jsonUser;
+                foreach (var item in list)
+                {
+                    // Convert each object to JSON and write it to the file stream
+                    string jsonItem = JsonHelper.ConvertPdfContentObjectToJson(item);
+                    writer.WriteLine(jsonItem);
+                }
             }
-            else
+        }
+
+        public static List<PdfContentObject> LoadList()
+        {
+            List<PdfContentObject> loadedList = new List<PdfContentObject>();
+            string folderPath = Path.Combine(Application.StartupPath, "save");
+            string dataFile = Path.Combine(folderPath, "saved_list");
+
+            if (!File.Exists(dataFile))
             {
-                return string.Empty;
+                // return a new list when the file doesn't exist
+                return loadedList;
             }
+
+            using (StreamReader reader = new StreamReader(dataFile))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    // Deserialize each JSON string back to a PdfContentObject
+                    PdfContentObject item = JsonHelper.ConvertJsonToPdfContentObject(line);
+                    if (item != null)
+                    {
+                        loadedList.Add(item);
+                    }
+                }
+            }
+
+            return loadedList;
         }
 
         public static void DeleteCurrentList()

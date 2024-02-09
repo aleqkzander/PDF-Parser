@@ -1,4 +1,6 @@
-﻿namespace PDF_Parser.Utility
+﻿using System;
+
+namespace PDF_Parser.Utility
 {
     public class PdfContentObject
     {

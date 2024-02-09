@@ -4,7 +4,6 @@ using System.IO;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Drawing.Imaging;
 
 namespace PDF_Parser
 {
@@ -18,22 +17,25 @@ namespace PDF_Parser
             InitializeComponent();
             DataSourceTextBox.KeyUp += DataSource_OnEnterPressed;
             FilterTextBox.KeyUp += FilterBox_OnEnterPressed;
-            _initialContentObjects = new List<PdfContentObject>();
         }
 
         private async void Welcome_Load(object sender, EventArgs e)
         {
-            string _initialContentObjectsString = DatasourceManager.LoadCurrentList();
+            DatasourceManager.CreatSaveDirectory();
 
-            if (string.IsNullOrEmpty(_initialContentObjectsString))
+            await Task.Run(() =>
+            {
+                _initialContentObjects = DatasourceManager.LoadList();
+            });
+
+            if (_initialContentObjects.Count == 0)
             {
                 LoadingAnimation.Visible = false;
                 return;
             }
+
             else
             {
-                _initialContentObjects = JsonHelper.ConvertJsonToList(_initialContentObjectsString);
-
                 await Task.Run(() =>
                 {
                     FillContenBoxFromList(_initialContentObjects);
@@ -49,9 +51,7 @@ namespace PDF_Parser
 
             DataboxController.ClearContentBox(DataSourceContentBox);
             _initialContentObjects.Clear();
-            DatasourceManager.DeleteCurrentList();
             string[] pdfFiles;
-
 
             DialogResult result = MessageBox.Show("Do you want to include subfolders?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -78,6 +78,7 @@ namespace PDF_Parser
         private void FillContenBoxFromList(List<PdfContentObject> pdfContentObjects)
         {
             if (pdfContentObjects.Count == 0) return;
+
             DataboxController.ClearContentBox(DataSourceContentBox);
 
             foreach (PdfContentObject filteredObject in pdfContentObjects)
@@ -104,6 +105,13 @@ namespace PDF_Parser
         private async void DataSource_OnEnterPressed(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter || string.IsNullOrEmpty(DataSourceTextBox.Text)) return;
+
+            if (LoadingAnimation.Visible)
+            {
+                MessageBox.Show("Currently there is an operation ongoing.");
+                return;
+            }
+
             LoadingAnimation.Visible = true;
 
             _dataSource = DataSourceTextBox.Text;
@@ -125,6 +133,13 @@ namespace PDF_Parser
         private async void FilterBox_OnEnterPressed(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter) return;
+
+            if (LoadingAnimation.Visible)
+            {
+                MessageBox.Show("Currently there is an operation ongoing.");
+                return;
+            }
+
             LoadingAnimation.Visible = false;
 
             try
@@ -152,14 +167,27 @@ namespace PDF_Parser
             LoadingAnimation.Visible = false;
         }
 
-        private void SaveDatasourceBtn_Click(object sender, EventArgs e)
+        private async void SaveDatasourceBtn_Click(object sender, EventArgs e)
         {
             if (_initialContentObjects == null || _initialContentObjects.Count == 0) return;
 
+            if (LoadingAnimation.Visible)
+            {
+                MessageBox.Show("Currently there is an operation ongoing.");
+                return;
+            }
+
             try
             {
-                string jsonList = JsonHelper.ConvertListToJson(_initialContentObjects);
-                DatasourceManager.SaveCurrentList(jsonList);
+                DatasourceManager.DeleteCurrentList();
+                LoadingAnimation.Visible = true;
+
+                await Task.Run(() =>
+                {
+                    DatasourceManager.SaveList(_initialContentObjects);
+                });
+
+                LoadingAnimation.Visible = false;
                 MessageBox.Show("List saved successfully");
             }
             catch (Exception exception)

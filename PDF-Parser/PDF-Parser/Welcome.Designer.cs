@@ -51,12 +51,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataSourceContentBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DataSourceContentBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DataSourceContentBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataSourceContentBox.FormattingEnabled = true;
-            this.DataSourceContentBox.ItemHeight = 20;
+            this.DataSourceContentBox.ItemHeight = 18;
             this.DataSourceContentBox.Location = new System.Drawing.Point(0, 28);
             this.DataSourceContentBox.Name = "DataSourceContentBox";
-            this.DataSourceContentBox.Size = new System.Drawing.Size(628, 562);
+            this.DataSourceContentBox.Size = new System.Drawing.Size(628, 560);
             this.DataSourceContentBox.TabIndex = 1;
             this.DataSourceContentBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DataSourceContentBox_MouseDoubleClick);
             // 

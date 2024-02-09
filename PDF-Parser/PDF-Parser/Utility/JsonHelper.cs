@@ -1,18 +1,17 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace PDF_Parser.Utility
 {
     public class JsonHelper
     {
-        public static string ConvertListToJson(List<PdfContentObject> pdfContentObjects)
+        public static string ConvertPdfContentObjectToJson(PdfContentObject item)
         {
-            return JsonConvert.SerializeObject(pdfContentObjects);
+            return JsonConvert.SerializeObject(item);
         }
 
-        public static List<PdfContentObject> ConvertJsonToList(string jsonString)
+        public static PdfContentObject ConvertJsonToPdfContentObject(string jsonString)
         {
-            return JsonConvert.DeserializeObject<List<PdfContentObject>>(jsonString);
+            return JsonConvert.DeserializeObject<PdfContentObject>(jsonString);
         }
     }
 }
