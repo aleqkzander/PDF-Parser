@@ -6,6 +6,8 @@ namespace PDF_Parser.Utility
 {
     public class DatasourceManager
     {
+        private static string _folderPath;
+
         private static bool IsSaveFilePresent()
         {
             string folderPath = Path.Combine(Application.StartupPath, "save");
@@ -29,12 +31,13 @@ namespace PDF_Parser.Utility
             {
                 Directory.CreateDirectory(folderPath);
             }
+
+            _folderPath = folderPath;
         }
 
         public static void SaveList(List<PdfContentObject> list)
         {
-            string folderPath = Path.Combine(Application.StartupPath, "save");
-            string dataFile = Path.Combine(folderPath, "saved_list");
+            string dataFile = Path.Combine(_folderPath, "saved_list");
 
             using (StreamWriter writer = new StreamWriter(dataFile))
             {
@@ -50,8 +53,7 @@ namespace PDF_Parser.Utility
         public static List<PdfContentObject> LoadList()
         {
             List<PdfContentObject> loadedList = new List<PdfContentObject>();
-            string folderPath = Path.Combine(Application.StartupPath, "save");
-            string dataFile = Path.Combine(folderPath, "saved_list");
+            string dataFile = Path.Combine(_folderPath, "saved_list");
 
             if (!File.Exists(dataFile))
             {
