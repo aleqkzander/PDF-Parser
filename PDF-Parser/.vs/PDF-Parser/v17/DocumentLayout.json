@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "D:\\PDF-Parser\\PDF-Parser\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{943A7BBC-2FC9-43DF-954E-6D9D7587770A}|PDF-Parser\\PDF-Parser.csproj|d:\\pdf-parser\\pdf-parser\\pdf-parser\\utility\\datasourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943A7BBC-2FC9-43DF-954E-6D9D7587770A}|PDF-Parser\\PDF-Parser.csproj|solutionrelative:pdf-parser\\utility\\datasourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{943A7BBC-2FC9-43DF-954E-6D9D7587770A}|PDF-Parser\\PDF-Parser.csproj|D:\\PDF-Parser\\PDF-Parser\\pdf-parser\\welcome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{943A7BBC-2FC9-43DF-954E-6D9D7587770A}|PDF-Parser\\PDF-Parser.csproj|solutionrelative:pdf-parser\\welcome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{943A7BBC-2FC9-43DF-954E-6D9D7587770A}|PDF-Parser\\PDF-Parser.csproj|D:\\PDF-Parser\\PDF-Parser\\pdf-parser\\welcome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{943A7BBC-2FC9-43DF-954E-6D9D7587770A}|PDF-Parser\\PDF-Parser.csproj|solutionrelative:pdf-parser\\welcome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943A7BBC-2FC9-43DF-954E-6D9D7587770A}|PDF-Parser\\PDF-Parser.csproj|d:\\pdf-parser\\pdf-parser\\pdf-parser\\utility\\sqliteadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943A7BBC-2FC9-43DF-954E-6D9D7587770A}|PDF-Parser\\PDF-Parser.csproj|solutionrelative:pdf-parser\\utility\\sqliteadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,24 +18,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SQLiteAdapter.cs",
-              "DocumentMoniker": "D:\\PDF-Parser\\PDF-Parser\\PDF-Parser\\Utility\\SQLiteAdapter.cs",
-              "RelativeDocumentMoniker": "PDF-Parser\\Utility\\SQLiteAdapter.cs",
-              "ToolTip": "D:\\PDF-Parser\\PDF-Parser\\PDF-Parser\\Utility\\SQLiteAdapter.cs",
-              "RelativeToolTip": "PDF-Parser\\Utility\\SQLiteAdapter.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwDcAAABUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-15T17:00:41.473Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Welcome.cs [Design]",
               "DocumentMoniker": "D:\\PDF-Parser\\PDF-Parser\\PDF-Parser\\Welcome.cs",
               "RelativeDocumentMoniker": "PDF-Parser\\Welcome.cs",
@@ -55,28 +34,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Welcome.cs",
               "DocumentMoniker": "D:\\PDF-Parser\\PDF-Parser\\PDF-Parser\\Welcome.cs",
               "RelativeDocumentMoniker": "PDF-Parser\\Welcome.cs",
               "ToolTip": "D:\\PDF-Parser\\PDF-Parser\\PDF-Parser\\Welcome.cs",
               "RelativeToolTip": "PDF-Parser\\Welcome.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAABAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAM0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-15T16:59:52.696Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DatasourceManager.cs",
-              "DocumentMoniker": "D:\\PDF-Parser\\PDF-Parser\\PDF-Parser\\Utility\\DatasourceManager.cs",
-              "RelativeDocumentMoniker": "PDF-Parser\\Utility\\DatasourceManager.cs",
-              "ToolTip": "D:\\PDF-Parser\\PDF-Parser\\PDF-Parser\\Utility\\DatasourceManager.cs",
-              "RelativeToolTip": "PDF-Parser\\Utility\\DatasourceManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-15T16:59:52.965Z",
               "EditorCaption": ""
             }
           ]

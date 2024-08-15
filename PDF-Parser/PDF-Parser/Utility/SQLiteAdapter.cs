@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PDF_Parser.Utility
@@ -85,5 +81,7 @@ namespace PDF_Parser.Utility
 
             return entries;
         }
+
+        public static string GetPathToDataFile() => _dataFile;
     }
 }
