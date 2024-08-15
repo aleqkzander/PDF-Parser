@@ -1,9 +1,9 @@
 ﻿using PDF_Parser.Utility;
 using System;
-using System.IO;
-using System.Windows.Forms;
-using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PDF_Parser
 {
@@ -21,7 +21,8 @@ namespace PDF_Parser
 
         private async void Welcome_Load(object sender, EventArgs e)
         {
-            DatasourceManager.CreatSaveDirectory();
+            //DatasourceManager.CreatSaveDirectory();
+            SQLiteAdapter.InitializeDatabase();
 
             await Task.Run(() =>
             {
@@ -69,7 +70,7 @@ namespace PDF_Parser
                 string path = Path.Combine(datasource, pdfFile);
                 string name = Path.GetFileName(pdfFile);
                 string text = ReaderHelper.Read(path);
-                PdfContentObject pdfContentObject = new PdfContentObject(path, name, text);
+                PdfContentObject pdfContentObject = new PdfContentObject(name, text);
                 _initialContentObjects.Add(pdfContentObject);
                 DataboxController.FillContentBox(DataSourceContentBox, pdfContentObject, this);
             }
