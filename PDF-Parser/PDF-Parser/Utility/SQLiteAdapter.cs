@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
@@ -25,7 +26,7 @@ namespace PDF_Parser.Utility
 
                     string createTableQuery = @"CREATE TABLE IF NOT EXISTS appdata (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,
+                name TEXT NOT NULL UNIQUE,
                 content TEXT NOT NULL
                  );";
 
@@ -44,14 +45,22 @@ namespace PDF_Parser.Utility
                 connection.Open();
 
                 string insertQuery = @"
-            INSERT INTO appdata (name, content)
-            VALUES (@name, @content);";
+        INSERT INTO appdata (name, content)
+        VALUES (@name, @content);";
 
                 using (SQLiteCommand command = new SQLiteCommand(insertQuery, connection))
                 {
                     command.Parameters.AddWithValue("@name", pdfContentObject.Name);
                     command.Parameters.AddWithValue("@content", pdfContentObject.Text);
-                    command.ExecuteNonQuery();
+
+                    try
+                    {
+                        // we only execute when the pdfContentObject is a new object - we don't add twice
+                        command.ExecuteNonQuery();
+                    }
+                    catch
+                    {
+                    }
                 }
             }
         }

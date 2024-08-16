@@ -21,7 +21,14 @@ namespace PDF_Parser
 
         private async void Welcome_Load(object sender, EventArgs e)
         {
-            SQLiteAdapter.InitializeDatabase();
+            try
+            {
+                SQLiteAdapter.InitializeDatabase();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
 
             await Task.Run(() =>
             {
@@ -176,7 +183,6 @@ namespace PDF_Parser
 
             try
             {
-                DatasourceManager.DeleteCurrentList();
                 LoadingAnimation.Visible = true;
 
                 await Task.Run(() =>
