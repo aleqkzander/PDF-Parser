@@ -21,7 +21,6 @@ namespace PDF_Parser
 
         private async void Welcome_Load(object sender, EventArgs e)
         {
-            //DatasourceManager.CreatSaveDirectory();
             SQLiteAdapter.InitializeDatabase();
 
             await Task.Run(() =>
@@ -57,13 +56,10 @@ namespace PDF_Parser
             DialogResult result = MessageBox.Show("Do you want to include subfolders?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
-            {
                 pdfFiles = Directory.GetFiles(_dataSource, "*.pdf", SearchOption.AllDirectories);
-            }
+
             else
-            {
                 pdfFiles = Directory.GetFiles(_dataSource, "*.pdf");
-            }
 
             foreach (string pdfFile in pdfFiles)
             {
