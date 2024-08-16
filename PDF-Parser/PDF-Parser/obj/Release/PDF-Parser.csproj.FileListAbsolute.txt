@@ -1,6 +1,8 @@
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\PDF-Parser.exe.config
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\PDF-Parser.exe
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\PDF-Parser.pdb
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\EntityFramework.dll
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\EntityFramework.SqlServer.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.barcodes.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.bouncy-castle-connector.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.commons.dll
@@ -9,6 +11,7 @@ C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Re
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.kernel.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.layout.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.pdfa.dll
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.pdfua.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.sign.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.styledxmlparser.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.svg.dll
@@ -21,12 +24,17 @@ C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Re
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\Microsoft.Extensions.Primitives.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\Newtonsoft.Json.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.Buffers.dll
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.Data.SQLite.dll
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.Data.SQLite.EF6.dll
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.Data.SQLite.Linq.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.Diagnostics.DiagnosticSource.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.Memory.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.Numerics.Vectors.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.Threading.Tasks.Extensions.dll
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.ValueTuple.dll
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\EntityFramework.xml
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\EntityFramework.SqlServer.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.barcodes.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.bouncy-castle-connector.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.commons.xml
@@ -35,6 +43,7 @@ C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Re
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.kernel.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.layout.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.pdfa.xml
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.pdfua.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.sign.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.styledxmlparser.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\itext.svg.xml
@@ -47,6 +56,7 @@ C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Re
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\Microsoft.Extensions.Primitives.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\Newtonsoft.Json.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.Buffers.xml
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.Data.SQLite.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.Diagnostics.DiagnosticSource.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.Memory.xml
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\bin\Release\System.Numerics.Vectors.xml
@@ -60,6 +70,6 @@ C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Re
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Release\PDF_Parser.Welcome.resources
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Release\PDF-Parser.csproj.GenerateResource.cache
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Release\PDF-Parser.csproj.CoreCompileInputs.cache
-C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Release\PDF-Parser.csproj.CopyComplete
+C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Release\PDF-Parser.csproj.Up2Date
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Release\PDF-Parser.exe
 C:\Users\alexa\OneDrive\Dokumente\GitHub\PDF-Parser\PDF-Parser\PDF-Parser\obj\Release\PDF-Parser.pdb
