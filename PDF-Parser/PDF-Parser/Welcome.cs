@@ -73,6 +73,10 @@ namespace PDF_Parser
                 string path = Path.Combine(datasource, pdfFile);
                 string name = Path.GetFileName(pdfFile);
                 string text = ReaderHelper.Read(path);
+
+                // skip files without information
+                if (string.IsNullOrEmpty(text)) continue;
+
                 PdfContentObject pdfContentObject = new PdfContentObject(name, text);
                 _initialContentObjects.Add(pdfContentObject);
                 DataboxController.FillContentBox(DataSourceContentBox, pdfContentObject, this);

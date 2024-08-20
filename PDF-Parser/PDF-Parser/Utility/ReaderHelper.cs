@@ -40,7 +40,7 @@ namespace PDF_Parser.Utility
             catch (Exception exception)
             {
                 // Handle exceptions, e.g., if the PDF file is password-protected or corrupted
-                text.AppendLine($"Error reading PDF file\n\n{exception}");
+                //text.AppendLine($"Error reading PDF file\n\n{exception}");
             }
 
             return text.ToString();
