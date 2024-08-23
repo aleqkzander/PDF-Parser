@@ -26,8 +26,6 @@ namespace PDF_Parser.Utility
                             // Create a SimpleTextExtractionStrategy to extract text from the page
                             ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
 
-                            if (strategy == null) return string.Empty;
-
                             // Parse the content of the page and extract text
                             string pageText = PdfTextExtractor.GetTextFromPage(pdfDocument.GetPage(pageNumber), strategy);
 
@@ -37,10 +35,10 @@ namespace PDF_Parser.Utility
                     }
                 }
             }
-            catch (Exception exception)
+            catch
             {
                 // Handle exceptions, e.g., if the PDF file is password-protected or corrupted
-                //text.AppendLine($"Error reading PDF file\n\n{exception}");
+                return null;
             }
 
             return text.ToString();
